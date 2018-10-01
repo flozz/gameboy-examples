@@ -10,6 +10,22 @@ This repository contains example programs for the Nintendo GameBoy video game co
 | [01 - Hello World](./01-hello-world/) | Simple program that prints "Hello World" on the screen. | https://blog.flozz.fr/2018/10/01/developpement-gameboy-1-hello-world/ |
 
 
+## Compiling Examples
+
+First you need to install some dependencies: GNU Make, GCC, bison, flex and git. This can be installed with the following command on Debian / Ubuntu:
+
+    sudo apt install build-essential bison flex git
+
+Then, from the example root directory run the following commands:
+
+    make buildenv   # Only the first time, this will download an compile GBDK to build the project
+    make            # Build the example
+
+If it worked, you should have a `.gb` file in the folder. You can run it with any GameBoy emulator. If you have Mednafen installed you can also run the following command:
+
+    make run
+
+
 ## License
 
 The examples in this repository are licensed under WTFPL unless otherwise stated:
