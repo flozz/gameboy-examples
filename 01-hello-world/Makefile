@@ -1,4 +1,4 @@
-PROG = test
+PROG = hello
 CC = GBDKDIR=./gbdk/build/ppc-unknown-linux2.2/gbdk/ ./gbdk/build/ppc-unknown-linux2.2/gbdk/bin/lcc
 _OBJ = $(patsubst %.c,%.o,$(wildcard src/*.c))
 
