@@ -30,23 +30,23 @@ void demo_waitpad_3(void) {
 
 void demo_waitpadup(void) {
     printf("Press A!\n");
-    waitpad(J_A | J_B);
+    waitpad(J_A);
     printf("> 1st\n");
     printf("Press A again!\n");
-    waitpad(J_A | J_B);
+    waitpad(J_A);
     printf("> 2nd\n");
 
-    waitpadup();  // Wait that all button are released
+    waitpadup();  // Wait that all buttons are released
 
     printf("Press A one more time!\n");
-    waitpad(J_A | J_B);
+    waitpad(J_A);
     printf("> 3rd");
 }
 
 // ==== joypad() ==========================================
 
 void demo_joypad(void) {
-UINT8 prev_keys = 0;
+    UINT8 prev_keys = 0;
     UINT8 keys = 0;
 
     printf("Press what you want\n\n");
