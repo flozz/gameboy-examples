@@ -29,14 +29,16 @@ void demo_waitpad_3(void) {
 // === waitpadup() ========================================
 
 void demo_waitpadup(void) {
+    // Here, if you press "A" one time, you will pass through the two
+    // waitpad() calls
     printf("Press A!\n");
     waitpad(J_A);
     printf("> 1st\n");
-    printf("Press A again!\n");
     waitpad(J_A);
     printf("> 2nd\n");
 
-    waitpadup();  // Wait that all buttons are released
+    // Wait that all buttons are released
+    waitpadup();
 
     printf("Press A one more time!\n");
     waitpad(J_A);
@@ -50,11 +52,20 @@ void demo_joypad(void) {
     UINT8 keys = 0;
 
     printf("Press what you want\n\n");
+
+    // Infinit loop to read keys
     while (TRUE) {
+        // Read currently pressed keys
         keys = joypad();
+
+        // If nothing changed from previous iteration, we continue to next
+        // iteration (to avoid displaying the same message again and again, we
+        // print a new message only when something changed)
         if (keys == prev_keys) {
             continue;
         }
+
+        // We display the pressed keys...
         if (keys > 0) {
             if (keys & J_UP) printf("UP ");
             if (keys & J_DOWN) printf("DOWN ");
@@ -65,11 +76,16 @@ void demo_joypad(void) {
             if (keys & J_A) printf("A ");
             if (keys & J_B) printf("B ");
             printf("\n");
+
+            // ... or "-" if no key is pressed.
         } else {
             printf("-\n");
         }
+
+        // We keep the pressed keys
         prev_keys = keys;
-    }}
+    }
+}
 
 // ========================================================
 
