@@ -5,7 +5,7 @@ This repository contains example programs for the Nintendo GameBoy video game co
 
 ## Index
 
-| Name | Description | Related article (in french) |
+| Name | Description | Related article (in French) |
 |---|---|---|
 | [01 - Hello World](./01-hello-world/) | Simple program that prints "Hello World" on the screen. | https://blog.flozz.fr/2018/10/01/developpement-gameboy-1-hello-world/ |
 
