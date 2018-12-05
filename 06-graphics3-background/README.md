@@ -1,10 +1,10 @@
 # GameBoy Example 06: Graphics 3 - background
 
-> Background layer with scrolling example
+> Background layer scrolling example
 
 ![Graphics 3](./graphics3-screenshot.png)
 
-Related article (in French): TODO
+Related article (in French): https://blog.flozz.fr/2018/12/05/developpement-gameboy-6-la-couche-background/
 
 Instructions to build this example can be found in [the main README file of this repository](https://github.com/flozz/gameboy-examples/#compiling-examples).
 
