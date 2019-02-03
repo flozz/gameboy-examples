@@ -7,15 +7,6 @@ all: build
 run: build
 	mednafen $(PROG).gb
 
-tileset:
-	img2gb \
-		--deduplicate \
-		--map \
-		--name=TILESET \
-		--header-file=src/tileset.h \
-		tilemap.png \
-		src/tileset.c
-
 build: $(PROG).gb
 
 $(PROG).gb: $(_OBJ)
@@ -23,6 +14,20 @@ $(PROG).gb: $(_OBJ)
 
 src/%.o: src/%.c
 	$(CC) -o $@ -c $<
+
+tileset:
+	img2gb tileset \
+		--output-c-file=src/tileset.c \
+		--output-header-file=src/tileset.h \
+		--output-image=src/tileset.png \
+		--deduplicate \
+		--name TILESET \
+		tilemap.png
+	img2gb tilemap \
+		--output-c-file=src/tilemap.c \
+		--output-header-file=src/tilemap.h \
+		src/tileset.png \
+		tilemap.png
 
 buildenv:
 	git clone https://github.com/gheja/gbdk.git
