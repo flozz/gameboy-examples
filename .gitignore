@@ -1,4 +1,8 @@
 gbdk
 *.o
 *.gb
+*.map
+*.lst
+
 00-*
+bak
