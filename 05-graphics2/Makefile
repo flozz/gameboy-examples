@@ -21,7 +21,6 @@ tileset:
 		--output-header-file=src/tileset.h \
 		--output-image=src/tileset.png \
 		--deduplicate \
-		--name TILESET \
 		./img.png
 	img2gb tilemap \
 		--output-c-file=src/tilemap.c \
