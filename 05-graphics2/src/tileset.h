@@ -6,8 +6,5 @@
 extern const UINT8 TILESET[];
 #define TILESET_TILE_COUNT 97
 
-extern const UINT8 TILESET_MAP[];
-#define TILESET_MAP_WIDTH 20
-#define TILESET_MAP_HEIGHT 18
 
 #endif

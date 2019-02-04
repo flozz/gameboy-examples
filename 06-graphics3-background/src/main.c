@@ -1,6 +1,7 @@
 #include <gb/gb.h>
 
 #include "tileset.h"
+#include "tilemap.h"
 
 void main(void) {
     UINT8 keys;
@@ -9,7 +10,7 @@ void main(void) {
     set_bkg_data(0, TILESET_TILE_COUNT, TILESET);
 
     // Copy the tilemap in the video memory
-    set_bkg_tiles(0, 0, TILESET_MAP_WIDTH, TILESET_MAP_HEIGHT, TILESET_MAP);
+    set_bkg_tiles(0, 0, TILEMAP_WIDTH, TILEMAP_HEIGHT, TILEMAP);
 
     // Display the background layer
     SHOW_BKG;

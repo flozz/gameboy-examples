@@ -11,11 +11,11 @@ Instructions to build this example can be found in [the main README file of this
 
 ## Image Conversion
 
-In addition to the other build commands documented in the main README file of this repository, I added an other one to regenerate `src/tileset.c` and `src/tileset.h` from `img.png`:
+In addition to the other build commands documented in the main README file of this repository, I added an other one to regenerate `src/tileset.c`, `src/tileset.h`, `src/tileset.png`, `src/tilemap.c` and `src/tilemap.h` from `img.png`:
 
     make tileset
 
-Note that you need to install [img2gb][] to generate the tileset.
+Note that you need to install [img2gb][] to generate the tileset and the tilemap.
 
 
 [img2gb]: https://github.com/flozz/img2gb
