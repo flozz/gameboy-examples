@@ -14,6 +14,7 @@ This repository contains example programs for the Nintendo GameBoy video game co
 | [05 - Graphics 2](./05-graphics2/)                         | Converts an image using img2gb and display it                                 | https://blog.flozz.fr/2018/11/19/developpement-gameboy-5-creer-des-tilesets/   |
 | [06 - Graphics 3 - background](./06-graphics3-background/) | Background layer scrolling example                                            | https://blog.flozz.fr/2018/12/05/developpement-gameboy-6-la-couche-background/ |
 | [07 - Graphics 4 - sprites](./07-graphics4-sprites/)       | A complete sprite example with an animated player                             | https://blog.flozz.fr/2019/02/05/developpement-gameboy-7-les-sprites/          |
+| [08 - Gtaphics 5 - window](./08-graphics5-window/)         | Window layer example                                                          | https://blog.flozz.fr/2019/06/30/developpement-gameboy-8-la-couche-window/     |
 
 
 ## Compiling Examples

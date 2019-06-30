@@ -10,7 +10,7 @@ void main(void) {
     // Copy the tileset in the video memory
     set_bkg_data(0, TILESET_TILE_COUNT, TILESET);
 
-    // Generates a tilemap for the Background window
+    // Generates a tilemap for the Background layer
     // and copy it in the video memory
     for (i = 0 ; i < 32*32 ; i++) {
         background_tilemap[i] = 0;  // tile #0 (background pattern)
