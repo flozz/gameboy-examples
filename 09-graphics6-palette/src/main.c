@@ -28,11 +28,11 @@ void main(void) {
     while (TRUE) {
         // Fade-in
         BGP_REG = PALETTE(BLACK, BLACK, BLACK, BLACK);
-        wait_frames(5);   // ~ 0.25s
+        wait_frames(5);   // ~ 0.08s
         BGP_REG = PALETTE(GRAY, BLACK, BLACK, BLACK);
-        wait_frames(5);   // ~ 0.25s
+        wait_frames(5);   // ~ 0.08s
         BGP_REG = PALETTE(SILVER, GRAY, BLACK, BLACK);
-        wait_frames(5);   // ~ 0.25s
+        wait_frames(5);   // ~ 0.08s
         BGP_REG = PALETTE(WHITE, SILVER, GRAY, BLACK);
 
         wait_frames(60);  // ~ 1s
@@ -44,13 +44,13 @@ void main(void) {
 
         // Fade-out (inverted color)
         BGP_REG = PALETTE(BLACK, GRAY, SILVER, WHITE);
-        wait_frames(5);   // ~ 0.25s
+        wait_frames(5);   // ~ 0.08s
         BGP_REG = PALETTE(BLACK, BLACK, GRAY, SILVER);
-        wait_frames(5);   // ~ 0.25s
+        wait_frames(5);   // ~ 0.08s
         BGP_REG = PALETTE(BLACK, BLACK, BLACK, GRAY);
-        wait_frames(5);   // ~ 0.25s
+        wait_frames(5);   // ~ 0.08s
         BGP_REG = PALETTE(BLACK, BLACK, BLACK, BLACK);
-        wait_frames(5);   // ~ 0.25s
+        wait_frames(5);   // ~ 0.08s
 
         wait_frames(60);  // ~ 1s
     }
