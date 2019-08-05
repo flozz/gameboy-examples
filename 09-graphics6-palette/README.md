@@ -1,10 +1,10 @@
-# GameBoy Example 09: Graphics 6 - Palettes
+# GameBoy Example 09: Graphics 6 - palettes
 
-> Play with color palettes
+> Playing with color palettes
 
 ![Graphics 6](./graphics6-screenshot.gif)
 
-Related article (in French): https://blog.flozz.fr/2018/11/19/developpement-gameboy-5-creer-des-tilesets/
+Related article (in French): https://blog.flozz.fr/2019/08/05/developpement-gameboy-9-les-palettes/
 
 Instructions to build this example can be found in [the main README file of this repository](https://github.com/flozz/gameboy-examples/#compiling-examples).
 
