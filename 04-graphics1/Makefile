@@ -1,24 +1,36 @@
 PROG = graphics1
-CC = GBDKDIR=./gbdk/build/ppc-unknown-linux2.2/gbdk/ ./gbdk/build/ppc-unknown-linux2.2/gbdk/bin/lcc
-_OBJ = $(patsubst %.c,%.o,$(wildcard src/*.c))
+
+GBDK_N = ../gbdk-n
+CC = $(GBDK_N)/bin/gbdk-n-compile.sh
+LD = $(GBDK_N)/bin/gbdk-n-link.sh
+MR = $(GBDK_N)/bin/gbdk-n-make-rom.sh
+
+_OBJ = $(patsubst %.c,%.rel,$(wildcard src/*.c))
+
 
 all: build
-
-run: build
-	mednafen $(PROG).gb
 
 build: $(PROG).gb
 
 $(PROG).gb: $(_OBJ)
-	$(CC) -o $(PROG).gb $^
+	$(LD) -o $(PROG).ihx $^
+	$(MR) $(PROG).ihx $(PROG).gb
 
-src/%.o: src/%.c
+%.rel: %.c
 	$(CC) -o $@ -c $<
 
-buildenv:
-	git clone https://github.com/gheja/gbdk.git
-	cd gbdk && make
+.PHONY: gbdk-n
+gbdk-n:
+	cd $(GBDK_N) && make
 
 clean:
-	rm -rf src/*.o
+	rm -rf src/*.rel
+	rm -rf src/*.lst
+	rm -rf src/*.sym
+	rm -rf src/*.asm
 	rm -rf $(PROG).gb
+	rm -rf $(PROG).ihx
+	rm -rf $(PROG).map
+	rm -rf $(PROG).sym
+	rm -rf $(PROG).noi
+	rm -rf $(PROG).lk
