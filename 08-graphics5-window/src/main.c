@@ -28,7 +28,7 @@ void main(void) {
     SHOW_BKG;
     SHOW_WIN;
 
-    while (TRUE) {
+    while (1) {
         // Sroll the Background layer to show that the
         // Window layer is static
         scroll_bkg(-1, -1);
