@@ -1,8 +1,8 @@
 # GameBoy Example 01: Hello World
 
-> Simple program that prints "Hello World" on the screen.
+![Hello World Screenshot](01-hello-world/hello_screenshot.png)
 
-![Hello World Screenshot](gameboy-example-hello-world-screenshot.png)
+> Simple program that prints "Hello World" on the screen.
 
 Related article (in French): https://blog.flozz.fr/2018/10/01/developpement-gameboy-1-hello-world/
 
