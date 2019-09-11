@@ -1,6 +1,6 @@
 # GameBoy Example 01: Hello World
 
-![Hello World Screenshot](01-hello-world/hello_screenshot.png)
+![Hello World Screenshot](hello_screenshot.png)
 
 > Simple program that prints "Hello World" on the screen.
 
