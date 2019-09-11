@@ -39,7 +39,7 @@ Then you have to build the gbdk-n library (this needs to be done only once):
     make
     cd ..
 
-Finally, you can build examples with the `make` command for the directory of the example. For example, if you want to build the "Hello World" example, you will have to run the following commands:
+Finally, you can build examples with the `make` command from the directory of the example. For example, if you want to build the "Hello World" example, you will have to run the following commands:
 
     cd 01-hello-world/
     make
