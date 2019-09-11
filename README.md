@@ -1,6 +1,6 @@
 # GameBoy Examples
 
-This repository contains example programs for the Nintendo GameBoy video game console. The examples are related to articles on my blog (in french).
+This repository contains example programs for the Nintendo GameBoy video game console. The examples are related to articles on my blog (in French).
 
 
 ## Examples Index
@@ -20,18 +20,47 @@ This repository contains example programs for the Nintendo GameBoy video game co
 
 ## Compiling Examples
 
-First you need to install some dependencies: GNU Make, GCC, bison, flex and git. This can be installed with the following command on Debian / Ubuntu:
+### Linux
 
-    sudo apt install build-essential bison flex git
+First you need to install some dependencies: SDCC (with its libraries), GNU Make, git. This can be installed with the following command on Debian / Ubuntu:
 
-Then, from the example root directory run the following commands:
+    sudo apt install build-essential sdcc sdcc-libraries git
 
-    make buildenv   # Only the first time, this will download an compile GBDK to build the project
-    make            # Build the example
+Then clone this repository and get submodules:
 
-If it worked, you should have a `.gb` file in the folder. You can run it with any GameBoy emulator. If you have Mednafen installed you can also run the following command:
+    git clone https://github.com/flozz/gameboy-examples.git
+    cd gameboy-examples
+    git submodule init
+    git submodule update
 
-    make run
+Then you have to build the gbdk-n library (this needs to be done only once):
+
+    cd gbdk-n
+    make
+    cd ..
+
+Finally, you can build examples with the `make` command for the directory of the example. For example, if you want to build the "Hello World" example, you will have to run the following commands:
+
+    cd 01-hello-world/
+    make
+
+You can now run the generated `.gb` file with your favorite emulator.
+
+
+### Windows
+
+TODO
+
+
+## Building assets
+
+Some of the examples have assets (tilesets, tilemaps, sprites,...). If you changes the images, you will have to rebuild assets with the following command (from the example directory):
+
+    make assets
+
+Note that you will need to install [img2gb][] to generate the assets.
+
+[img2gb]: https://github.com/flozz/img2gb
 
 
 ## License
