@@ -46,6 +46,10 @@ Finally, you can build examples with the `make` command from the directory of th
 
 You can now run the generated `.gb` file with your favorite emulator.
 
+If you want to cleanup the folder from all generated files (`*.rel`, `*.lst`, `*.gb`,...), you can use the following command:
+
+    make clean
+
 
 ### Windows
 
@@ -54,13 +58,25 @@ TODO
 
 ## Building assets
 
-Some of the examples have assets (tilesets, tilemaps, sprites,...). If you changes the images, you will have to rebuild assets with the following command (from the example directory):
+Some of the examples have assets (tilesets, tilemaps, sprites,...). If you changes the images, you will have to rebuild assets.
+
+### Linux
+
+You will first need to [install img2gb][img2gb-install]. This can be done with the following command:
+
+    sudo pip install img2gb
+
+Then, just run the following command (from the example directory):
 
     make assets
 
-Note that you will need to install [img2gb][] to generate the assets.
+### Windows
 
-[img2gb]: https://github.com/flozz/img2gb
+TODO
+
+
+[img2gb-win]: https://github.com/flozz/img2gb/releases
+[img2gb-install]: https://flozz.github.io/img2gb/install.html
 
 
 ## License
