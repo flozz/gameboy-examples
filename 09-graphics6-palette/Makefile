@@ -4,6 +4,7 @@ GBDK_N = ../gbdk-n
 CC = $(GBDK_N)/bin/gbdk-n-compile.sh
 LD = $(GBDK_N)/bin/gbdk-n-link.sh
 MR = $(GBDK_N)/bin/gbdk-n-make-rom.sh
+IMG2GB = img2gb
 
 _OBJ = $(patsubst %.c,%.rel,$(wildcard src/*.c))
 
@@ -20,13 +21,13 @@ $(PROG).gb: $(_OBJ)
 	$(CC) -o $@ -c $<
 
 assets:
-	img2gb tileset \
+	$(IMG2GB) tileset \
 		--output-c-file=src/tileset.c \
 		--output-header-file=src/tileset.h \
 		--output-image=src/tileset.png \
 		--deduplicate \
 		./img.png
-	img2gb tilemap \
+	$(IMG2GB) tilemap \
 		--output-c-file=src/tilemap.c \
 		--output-header-file=src/tilemap.h \
 		src/tileset.png \
