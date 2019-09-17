@@ -102,7 +102,7 @@ void main(void) {
     move_sprite(PLAYER_SPRITE_R_ID, player_x + 8, player_y);
     set_sprite_prop(PLAYER_SPRITE_R_ID, S_PALETTE);
 
-    while (TRUE) {
+    while (1) {
         // Wait for v-blank (screen refresh)
         wait_vbl_done();
 

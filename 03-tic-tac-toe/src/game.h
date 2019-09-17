@@ -1,6 +1,8 @@
 #ifndef _GAME_H
 #define _GAME_H
 
+#include <types.h>
+
 #define GAME_BOARD_X      4
 #define GAME_BOARD_Y      4
 #define GAME_BOARD_SIZE   3

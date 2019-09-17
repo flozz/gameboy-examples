@@ -15,7 +15,7 @@ void main(void) {
     // Display the background layer
     SHOW_BKG;
 
-    while (TRUE) {
+    while (1) {
         keys = joypad();
 
         // Scroll to the corresponding direction when a button

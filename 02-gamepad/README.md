@@ -1,8 +1,8 @@
 # GameBoy Example 02: Gamepad
 
-> Simple program shows how to use gamepad in a GameBoy program.
+![GameBoy Example GamePad Screenshot](gamepad_screenshot.gif)
 
-![GameBoy Example GamePad Screenshot](./gameboy-example-gamepad-screenshot.png)
+> Simple program shows how to use gamepad in a GameBoy program.
 
 Related article (in French): https://blog.flozz.fr/2018/10/15/developpement-gameboy-2-utiliser-le-gamepad/
 

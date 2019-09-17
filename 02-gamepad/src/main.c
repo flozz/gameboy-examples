@@ -54,7 +54,7 @@ void demo_joypad(void) {
     printf("Press what you want\n\n");
 
     // Infinit loop to read keys
-    while (TRUE) {
+    while (1) {
         // Read currently pressed keys
         keys = joypad();
 

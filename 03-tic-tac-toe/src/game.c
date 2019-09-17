@@ -97,7 +97,7 @@ void game_player_play(void) {
     UINT8 key;
     UINT8 cell;
 
-    while (TRUE) {
+    while (1) {
         game_draw_cursor('/');
         waitpadup();  // Avoids keys to be read twice
         key = waitpad(J_UP | J_DOWN | J_LEFT | J_RIGHT | J_A);
@@ -130,8 +130,8 @@ void game_computer_play(void) {
     UINT8 cell;
     UINT8 player_score;
     UINT8 computer_score;
-    UINT8 lose_cell = -1;
-    UINT8 last_empty_cell = -1;
+    INT8 lose_cell = -1;
+    INT8 last_empty_cell = -1;
 
     // Check lines
     for (y = 0 ; y < GAME_BOARD_SIZE ; y += 1) {
@@ -265,7 +265,7 @@ UINT8 game_check_status(void) {
     UINT8 player_score_v;
     UINT8 computer_score_h;
     UINT8 computer_score_v;
-    UINT8 has_empty_cells = FALSE;
+    UINT8 has_empty_cells = 0;
 
     // Check lines and columns
     for (y = 0 ; y < GAME_BOARD_SIZE ; y += 1) {
@@ -278,7 +278,7 @@ UINT8 game_check_status(void) {
             cell = coord_2d_to_1d(x, y);
             switch (GAME_BOARD[cell]) {
                 case GAME_BOARD_CELL_EMPTY:
-                    has_empty_cells = TRUE;
+                    has_empty_cells = 1;
                     break;
                 case GAME_BOARD_CELL_PLAYER:
                     player_score_h += 1;
@@ -371,7 +371,7 @@ void game(void) {
     game_init();
     game_draw_board();
 
-    while (TRUE) {
+    while (1) {
         // Player turn
         game_player_play();
         game_draw_state();

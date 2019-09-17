@@ -6,7 +6,7 @@
 void main(void) {
     printf(" ");  // First gotoxy() call does not works else...
 
-    while (TRUE) {
+    while (1) {
         title_screen();
         game();
     }

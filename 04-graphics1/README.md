@@ -1,8 +1,8 @@
 # GameBoy Example 04: Graphics 1
 
-> Simple example to show how to draw tiles on the GameBoy
+![Tiles drawing screenshot](graphics1_screenshot.png)
 
-![Tiles drawing screenshot](./gameboy-example-tiles-drawing-screenshot.png)
+> Simple example to show how to draw tiles on the GameBoy
 
 Related article (in French): https://blog.flozz.fr/2018/11/12/developpement-gameboy-4-afficher-des-images/
 

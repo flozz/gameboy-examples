@@ -1,4 +1,5 @@
 #include <gb/gb.h>
+#include <types.h>
 
 #include "tileset.h"
 #include "tilemap.h"
@@ -25,7 +26,7 @@ void main(void) {
     BGP_REG = PALETTE(BLACK, BLACK, BLACK, BLACK);
     wait_frames(60);  // ~ 1s
 
-    while (TRUE) {
+    while (1) {
         // Fade-in
         BGP_REG = PALETTE(BLACK, BLACK, BLACK, BLACK);
         wait_frames(5);   // ~ 0.08s
