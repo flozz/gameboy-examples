@@ -53,7 +53,54 @@ If you want to cleanup the folder from all generated files (`*.rel`, `*.lst`, `*
 
 ### Windows
 
-TODO
+To build the examples on Windows, you first have to download and install [the latest SDCC version](http://sdcc.sourceforge.net/).
+
+Then clone this repository and get submodules:
+
+    git clone https://github.com/flozz/gameboy-examples.git
+    cd gameboy-examples
+    git submodule init
+    git submodule update
+
+Then you have to build the gbdk-n library (this needs to be done only once).
+
+If you are using CMD.exe:
+
+    cd gbdk-n
+    make
+    cd ..
+
+If you are using Git Bash:
+
+    cd gbdk-n
+    ./Make.bat
+    cd ..
+
+Finally go to an example folder:
+
+    cd 01-hello-world
+
+And build it using the `Make.bat` file.
+
+If you are using CMD.exe:
+
+    make
+
+If you are using Git Bash:
+
+    ./Make.bat
+
+You can now run the generated `.gb` file with your favorite emulator.
+
+If you want to cleanup the folder from all generated files (`*.rel`, `*.lst`, `*.gb`,...), you can use the following command:
+
+If you are using CMD.exe:
+
+    make clean
+
+If you are using Git Bash:
+
+    ./Make.bat clean
 
 
 ## Building assets
@@ -76,7 +123,7 @@ You first have to get the Windows version of img2gb :
 
 * [Download de latest img2gb binary for Windows][img2gb-win],
 * then rename it `img2gb.exe`,
-* and put it in the project folder (in the same folder than the `Make.bat`file).
+* and put it in the project folder (in the same folder than the `Make.bat` file).
 
 Finally, open a terminal in the project's folder and use the following command to rebuild the assets :
 
