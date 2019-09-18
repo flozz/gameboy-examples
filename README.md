@@ -72,7 +72,19 @@ Then, just run the following command (from the example directory):
 
 ### Windows
 
-TODO
+You first have to get the Windows version of img2gb :
+
+* [Download de latest img2gb binary for Windows][img2gb-win],
+* then rename it `img2gb.exe`,
+* and put it in the project folder (in the same folder than the `Make.bat`file).
+
+Finally, open a terminal in the project's folder and use the following command to rebuild the assets :
+
+    make assets
+
+The previous command will work if you are using CMD.exe, but if you are using Git Bash, type this one instead :
+
+    ./Make.bat assets
 
 
 [img2gb-win]: https://github.com/flozz/img2gb/releases
