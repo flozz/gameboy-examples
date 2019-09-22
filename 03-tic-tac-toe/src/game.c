@@ -5,10 +5,6 @@
 #include "game.h"
 
 // Game state variables
-//
-// WARN: The variable are not initialized so they will be located to the RAM.
-// If you declare initialized variable at file-level, they will be located to
-// the ROM and will be read-only!
 UINT8 GAME_BOARD[GAME_BOARD_SIZE * GAME_BOARD_SIZE];
 UINT8 GAME_CURSOR_X;
 UINT8 GAME_CURSOR_Y;
