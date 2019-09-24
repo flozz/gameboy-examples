@@ -31,7 +31,12 @@
 #define PADDLE_WIDTH     3 * TILE_WIDTH
 #define PADDLE_ORIG_X    SPRITE_OFFSET_X + (SCREEN_WIDTH_PX - PADDLE_WIDTH) / 2
 
-UINT8 PADDLE_X = PADDLE_ORIG_X;
+UINT8 PADDLE_X;
+
+UINT8 BALL_X = 50;
+UINT8 BALL_Y = 120;
+INT8 BALL_DELTA_X = 1;
+INT8 BALL_DELTA_Y = -1;
 
 
 void move_paddle(INT8 delta) {
@@ -55,6 +60,16 @@ void move_paddle(INT8 delta) {
     move_sprite(SPRITE_PADDLE_R, PADDLE_X + 2 * TILE_WIDTH, PADDLE_Y);
 }
 
+UINT8 check_ball_collide(INT8 delta_x, INT8 delta_y) {
+    UINT8 ball_next_cell_x = (BALL_X + delta_x - SPRITE_OFFSET_X) / TILE_WIDTH;
+    UINT8 ball_next_cell_y = (BALL_Y + delta_y - SPRITE_OFFSET_Y) / TILE_WIDTH;
+    UINT8 next_cell[1];
+
+    get_bkg_tiles(ball_next_cell_x, ball_next_cell_y, 1, 1, next_cell);
+
+    return next_cell[0] != TILE_EMPTY;
+}
+
 void main(void) {
     set_bkg_data(TILE_OFFSET, LEVELS_TILESET_TILE_COUNT, LEVELS_TILESET);
     set_bkg_tiles(0, 0, LEVEL01_TILEMAP_WIDTH, LEVEL01_TILEMAP_HEIGHT, LEVEL01_TILEMAP);
@@ -64,17 +79,29 @@ void main(void) {
     set_sprite_tile(SPRITE_PADDLE_L, TILE_PADDLE_L);
     set_sprite_tile(SPRITE_PADDLE_C, TILE_PADDLE_C);
     set_sprite_tile(SPRITE_PADDLE_R, TILE_PADDLE_R);
-    move_sprite(SPRITE_BALL, 50, 120);
     move_paddle(0);
     SHOW_SPRITES;
 
     while (TRUE) {
+        // Player's moves
         UINT8 keys = joypad();
         if (keys & J_LEFT) {
             move_paddle(-2);
         } else if (keys & J_RIGHT) {
             move_paddle(+2);
         }
+
+        // Ball's moves
+        if (check_ball_collide(BALL_DELTA_X, 0)) {
+            BALL_DELTA_X = -BALL_DELTA_X;
+        }
+        if (check_ball_collide(0, BALL_DELTA_Y)) {
+            BALL_DELTA_Y = -BALL_DELTA_Y;
+        }
+        BALL_X += BALL_DELTA_X;
+        BALL_Y += BALL_DELTA_Y;
+        move_sprite(SPRITE_BALL, BALL_X, BALL_Y);
+
         wait_vbl_done();
     }
 }
