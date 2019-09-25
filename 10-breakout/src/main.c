@@ -27,7 +27,7 @@
 #define SPRITE_PADDLE_C  2
 #define SPRITE_PADDLE_R  3
 
-#define PADDLE_Y         16 + 17 * 8
+#define PADDLE_Y         SPRITE_OFFSET_Y + 17 * TILE_WIDTH
 #define PADDLE_WIDTH     3 * TILE_WIDTH
 #define PADDLE_ORIG_X    SPRITE_OFFSET_X + (SCREEN_WIDTH_PX - PADDLE_WIDTH) / 2
 
