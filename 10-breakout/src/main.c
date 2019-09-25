@@ -10,6 +10,9 @@
 #define SCREEN_WIDTH_TILE  20
 #define SCREEN_WIDTH_PX    SCREEN_WIDTH_TILE * TILE_WIDTH
 
+#define SPRITE_OFFSET_X  8
+#define SPRITE_OFFSET_Y  16
+
 #define TILE_OFFSET    128
 #define TILE_EMPTY     TILE_OFFSET + 0
 #define TILE_BRICK_L   TILE_OFFSET + 8
@@ -18,9 +21,6 @@
 #define TILE_PADDLE_C  TILE_OFFSET + 13
 #define TILE_PADDLE_R  TILE_OFFSET + 14
 #define TILE_BALL      TILE_OFFSET + 15
-
-#define SPRITE_OFFSET_X  8
-#define SPRITE_OFFSET_Y  16
 
 #define SPRITE_BALL      0
 #define SPRITE_PADDLE_L  1
@@ -61,8 +61,16 @@ void move_paddle(INT8 delta) {
 }
 
 UINT8 check_ball_collide(INT8 delta_x, INT8 delta_y) {
-    UINT8 ball_next_cell_x = (BALL_X + delta_x - SPRITE_OFFSET_X) / TILE_WIDTH;
-    UINT8 ball_next_cell_y = (BALL_Y + delta_y - SPRITE_OFFSET_Y) / TILE_WIDTH;
+    UINT8 ball_x = BALL_X + delta_x;
+    UINT8 ball_y = BALL_Y + delta_y;
+    // Paddle
+    if (ball_y >= PADDLE_Y && ball_x >= PADDLE_X && ball_x <= PADDLE_X + PADDLE_WIDTH) {
+        return TRUE;
+    }
+
+    // Environment
+    UINT8 ball_next_cell_x = (ball_x - SPRITE_OFFSET_X) / TILE_WIDTH;
+    UINT8 ball_next_cell_y = (ball_y - SPRITE_OFFSET_Y) / TILE_WIDTH;
     UINT8 next_cell[1];
 
     get_bkg_tiles(ball_next_cell_x, ball_next_cell_y, 1, 1, next_cell);
