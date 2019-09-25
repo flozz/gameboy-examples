@@ -31,6 +31,8 @@
 #define PADDLE_WIDTH     3 * TILE_WIDTH
 #define PADDLE_ORIG_X    SPRITE_OFFSET_X + (SCREEN_WIDTH_PX - PADDLE_WIDTH) / 2
 
+#define BALL_WIDTH  6
+
 UINT8 PADDLE_X;
 
 UINT8 BALL_X = 50;
@@ -63,6 +65,15 @@ void move_paddle(INT8 delta) {
 UINT8 check_ball_collide(INT8 delta_x, INT8 delta_y) {
     UINT8 ball_x = BALL_X + delta_x;
     UINT8 ball_y = BALL_Y + delta_y;
+
+    // Change considered ball collision point depending on direction
+    if (BALL_DELTA_X > 0) {
+        ball_x += BALL_WIDTH;
+    }
+    if (BALL_DELTA_Y > 0) {
+        ball_y += BALL_WIDTH;
+    }
+
     // Paddle
     if (ball_y >= PADDLE_Y && ball_x >= PADDLE_X && ball_x <= PADDLE_X + PADDLE_WIDTH) {
         return TRUE;
