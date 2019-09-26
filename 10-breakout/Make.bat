@@ -26,8 +26,8 @@ if "%1" == "clean" (
 :: assets
 if "%1" == "assets" (
     echo "Building assets"
-    call %IMG2GB% tileset --output-c-file=src/levels.tileset.c --output-header-file=src/levels.tileset.h --output-image=src/levels.tileset.png --name=LEVELS_TILESET ./assets/breakout-tileset.png
-    call %IMG2GB% tilemap --output-c-file=src/level01.tilemap.c --output-header-file=src/level01.tilemap.h --offset=128 --name=LEVEL01_TILEMAP src/tileset.png ./assets/breakout-tilemap-level01.png
+    call %IMG2GB% tileset --output-c-file=src\levels.tileset.c --output-header-file=src\levels.tileset.h --output-image=src\levels.tileset.png --name=LEVELS_TILESET .\assets\breakout-tileset.png
+    call %IMG2GB% tilemap --output-c-file=src\level01.tilemap.c --output-header-file=src\level01.tilemap.h --offset=128 --name=LEVEL01_TILEMAP src\levels.tileset.png .\assets\breakout-tilemap-level01.png
     goto end
 )
 

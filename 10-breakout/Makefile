@@ -33,7 +33,7 @@ assets:
 		--output-header-file=src/level01.tilemap.h \
 		--offset=128 \
 		--name=LEVEL01_TILEMAP \
-		src/tileset.png \
+		src/levels.tileset.png \
 		./assets/breakout-tilemap-level01.png
 
 .PHONY: gbdk-n
