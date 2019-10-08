@@ -66,20 +66,26 @@ UINT8 check_ball_collide(INT8 delta_x, INT8 delta_y) {
     UINT8 ball_x = BALL_X + delta_x;
     UINT8 ball_y = BALL_Y + delta_y;
 
-    // Change considered ball collision point depending on direction
-    if (BALL_DELTA_X > 0) {
-        ball_x += BALL_WIDTH;
-    }
-    if (BALL_DELTA_Y > 0) {
-        ball_y += BALL_WIDTH;
-    }
-
     // Paddle
-    if (ball_y >= PADDLE_Y && ball_x >= PADDLE_X && ball_x <= PADDLE_X + PADDLE_WIDTH) {
-        return TRUE;
+    if (ball_y + BALL_WIDTH - 1 >= PADDLE_Y) {
+        if (ball_x >= PADDLE_X && ball_x <= PADDLE_X + PADDLE_WIDTH) {
+            return TRUE;
+        }
+        if (ball_x + BALL_WIDTH - 1 >= PADDLE_X && ball_x + BALL_WIDTH <= PADDLE_X + PADDLE_WIDTH) {
+            return TRUE;
+        }
     }
 
     // Environment
+
+    // Change considered ball collision point depending on direction
+    if (BALL_DELTA_X > 0) {
+        ball_x += BALL_WIDTH - 1;
+    }
+    if (BALL_DELTA_Y > 0) {
+        ball_y += BALL_WIDTH - 1;
+    }
+
     UINT8 ball_next_cell_x = (ball_x - SPRITE_OFFSET_X) / TILE_WIDTH;
     UINT8 ball_next_cell_y = (ball_y - SPRITE_OFFSET_Y) / TILE_WIDTH;
     UINT8 next_cell[1];
@@ -99,6 +105,7 @@ void main(void) {
     set_sprite_tile(SPRITE_PADDLE_C, TILE_PADDLE_C);
     set_sprite_tile(SPRITE_PADDLE_R, TILE_PADDLE_R);
     move_paddle(0);
+    move_sprite(SPRITE_BALL, BALL_X, BALL_Y);
     SHOW_SPRITES;
 
     while (TRUE) {
