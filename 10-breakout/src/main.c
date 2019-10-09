@@ -62,6 +62,11 @@ void move_paddle(INT8 delta) {
     move_sprite(SPRITE_PADDLE_R, PADDLE_X + 2 * TILE_WIDTH, PADDLE_Y);
 }
 
+void remove_brick(UINT8 x, UINT8 y) {
+    UINT8 cells[2] = {TILE_EMPTY, TILE_EMPTY};
+    set_bkg_tiles(x, y, 2, 1, cells);
+}
+
 UINT8 check_ball_collide(INT8 delta_x, INT8 delta_y) {
     UINT8 ball_x = BALL_X + delta_x;
     UINT8 ball_y = BALL_Y + delta_y;
@@ -92,6 +97,17 @@ UINT8 check_ball_collide(INT8 delta_x, INT8 delta_y) {
 
     get_bkg_tiles(ball_next_cell_x, ball_next_cell_y, 1, 1, next_cell);
 
+    // remove bricks
+    switch (next_cell[0]) {
+        case TILE_BRICK_L:
+            remove_brick(ball_next_cell_x, ball_next_cell_y);
+            break;
+        case TILE_BRICK_R:
+            remove_brick(ball_next_cell_x - 1, ball_next_cell_y);
+            break;
+    }
+
+    // return collision with env
     return next_cell[0] != TILE_EMPTY;
 }
 
