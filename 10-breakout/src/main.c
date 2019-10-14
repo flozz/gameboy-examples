@@ -9,6 +9,8 @@
 #define TILE_WIDTH         8
 #define SCREEN_WIDTH_TILE  20
 #define SCREEN_WIDTH_PX    SCREEN_WIDTH_TILE * TILE_WIDTH
+#define SCREEN_HEIGH_TILE  18
+#define SCREEN_HEIGH_PX    SCREEN_HEIGH_TILE * TILE_WIDTH
 
 #define SPRITE_OFFSET_X  8
 #define SPRITE_OFFSET_Y  16
@@ -27,7 +29,7 @@
 #define SPRITE_PADDLE_C  2
 #define SPRITE_PADDLE_R  3
 
-#define PADDLE_Y         SPRITE_OFFSET_Y + 17 * TILE_WIDTH
+#define PADDLE_Y         SPRITE_OFFSET_Y + (SCREEN_HEIGH_TILE - 1) * TILE_WIDTH
 #define PADDLE_WIDTH     3 * TILE_WIDTH
 #define PADDLE_ORIG_X    SPRITE_OFFSET_X + (SCREEN_WIDTH_PX - PADDLE_WIDTH) / 2
 
@@ -111,6 +113,10 @@ UINT8 check_ball_collide(INT8 delta_x, INT8 delta_y) {
     return next_cell[0] != TILE_EMPTY;
 }
 
+UINT8 check_gameover() {
+    return BALL_Y + BALL_WIDTH >= SCREEN_HEIGH_PX + SPRITE_OFFSET_Y;
+}
+
 void main(void) {
     set_bkg_data(TILE_OFFSET, LEVELS_TILESET_TILE_COUNT, LEVELS_TILESET);
     set_bkg_tiles(0, 0, LEVEL01_TILEMAP_WIDTH, LEVEL01_TILEMAP_HEIGHT, LEVEL01_TILEMAP);
@@ -126,6 +132,7 @@ void main(void) {
 
     while (TRUE) {
         // Player's moves
+
         UINT8 keys = joypad();
         if (keys & J_LEFT) {
             move_paddle(-2);
@@ -133,7 +140,12 @@ void main(void) {
             move_paddle(+2);
         }
 
-        // Ball's moves
+        // Check for Game Over
+        if (check_gameover()) {
+            break;
+        }
+
+        // Move the ball
         if (check_ball_collide(BALL_DELTA_X, 0)) {
             BALL_DELTA_X = -BALL_DELTA_X;
         }
