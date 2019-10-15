@@ -35,12 +35,16 @@
 
 #define BALL_WIDTH  6
 
+#define LEVEL01_BRICK_COUNT 39
+
 UINT8 PADDLE_X;
 
 UINT8 BALL_X = 50;
 UINT8 BALL_Y = 120;
 INT8 BALL_DELTA_X = 1;
 INT8 BALL_DELTA_Y = -1;
+
+UINT8 REMAINING_BRICKS = LEVEL01_BRICK_COUNT;
 
 
 void move_paddle(INT8 delta) {
@@ -67,6 +71,7 @@ void move_paddle(INT8 delta) {
 void remove_brick(UINT8 x, UINT8 y) {
     UINT8 cells[2] = {TILE_EMPTY, TILE_EMPTY};
     set_bkg_tiles(x, y, 2, 1, cells);
+    REMAINING_BRICKS -= 1;
 }
 
 UINT8 check_ball_collide(INT8 delta_x, INT8 delta_y) {
@@ -130,9 +135,8 @@ void main(void) {
     move_sprite(SPRITE_BALL, BALL_X, BALL_Y);
     SHOW_SPRITES;
 
-    while (TRUE) {
+    while (REMAINING_BRICKS) {
         // Player's moves
-
         UINT8 keys = joypad();
         if (keys & J_LEFT) {
             move_paddle(-2);
