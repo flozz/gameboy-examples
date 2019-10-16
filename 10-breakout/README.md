@@ -1,9 +1,9 @@
 # GameBoy Example 10: Breakout
 
-![Hello World Screenshot](hello_screenshot.png)
+![Breakout Screenshot](breakout_screenshot.gif)
 
-> Simple program that prints "Hello World" on the screen.
+> Simple breakout game
 
-Related article (in French): https://blog.flozz.fr/2019/09/18/developpement-gameboy-1bis-re-hello-world/
+Related article (in French): TODO
 
 Instructions to build this example can be found in [the main README file of this repository](https://github.com/flozz/gameboy-examples/#compiling-examples).
