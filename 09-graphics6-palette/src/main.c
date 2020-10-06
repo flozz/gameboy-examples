@@ -12,7 +12,7 @@
 
 void wait_frames(INT8 count) {
     while (count) {
-        count -= SILVER;
+        count -= 1;
         wait_vbl_done();
     }
 }
