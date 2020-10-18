@@ -4,7 +4,7 @@
 #define _FONT_TILESET_H
 
 extern const UINT8 FONT_TILESET[];
-#define FONT_TILESET_TILE_COUNT 64
+#define FONT_TILESET_TILE_COUNT 48
 
 
 #endif
